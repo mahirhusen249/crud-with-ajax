@@ -24,84 +24,102 @@
                                         <div class="row mb-3">
                                             <label class="col-sm-3 col-form-label">Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" required>
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" required> 
+                                                <div id="nameError" class="text-danger"></div> <!-- Error message for name -->
+
                                             </div>
                                         </div>  
                                         <div class="row mb-3">
                                             <label class="col-sm-3 col-form-label">Mobile No</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="mobileno" id="mobileno" placeholder="Enter Mobile No" required>
+                                                <input type="text" class="form-control" name="mobileno" id="mobileno" placeholder="Enter Mobile No" required> 
+                                                <div id="mobilenoError" class="text-danger"></div> <!-- Error message for mobile number -->
+
                                             </div>
                                         </div>  
                                         <div class="row mb-3">
                                             <label class="col-sm-3 col-form-label">Email</label>
                                             <div class="col-sm-9">
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" required>
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" required> 
+                                                <div id="emailError" class="text-danger"></div> <!-- Error message for email -->
+
                                             </div>
                                         </div>  
                                         <div class="row mb-3">
                                             <label class="col-sm-3 col-form-label">Password</label>
                                             <div class="col-sm-9">
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required>
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required> 
+                                                <div id="passwordError" class="text-danger"></div> <!-- Error message for password -->
+
                                             </div>
                                         </div> 
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary" id="saveBtn">Save changes</button>
+                                        <button type="submit" class="btn btn-primary" name="submit"id="saveBtn">Save changes</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>       
-                <!-- update model  -->
-                           
-                    <form method="post" id="addForm" enctype="multipart/form-data">
-                        <div class="modal fade" id="updateIconModal" tabindex="-1" aria-labelledby="addIconModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="addIconModalLabel">Edit Record</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label">Name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" required>
-                                            </div>
-                                        </div>  
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label">Mobile No</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="mobileno" id="mobileno" placeholder="Enter Mobile No" required>
-                                            </div>
-                                        </div>  
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label">Email</label>
-                                            <div class="col-sm-9">
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" required>
-                                            </div>
-                                        </div>  
-                                        <div class="row mb-3">
-                                            <label class="col-sm-3 col-form-label">Password</label>
-                                            <div class="col-sm-9">
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary" id="saveBtn">Save changes</button>
-                                    </div>
+                    </form> 
+                  
+
+                <!-- Modal Update -->
+                <form method="post" id="updateForm" enctype="multipart/form-data">
+                    <div class="modal fade" id="updateIconModal" tabindex="-1" aria-labelledby="updateIconModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="updateIconModalLabel">Edit Record</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" name="id" id="updateId" required> <!-- Hidden input for ID -->
+                                    <!-- Name Field -->
+                                    <div class="row mb-3">
+                                        <label class="col-sm-3 col-form-label">Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="name" id="updateName" placeholder="Enter Name" required> 
+                                            <div id="updatenameError" class="text-danger"></div> <!-- Error message for name -->
+
+                                        </div>
+                                    </div>  
+                                    <!-- Mobile No Field -->
+                                    <div class="row mb-3">
+                                        <label class="col-sm-3 col-form-label">Mobile No</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="mobileno" id="updateMobileno" placeholder="Enter Mobile No" required> 
+                                            <div id="updatemobilenoError" class="text-danger"></div> <!-- Error message for mobile number -->
+
+                                        </div>
+                                    </div>  
+                                    <!-- Email Field -->
+                                    <div class="row mb-3">
+                                        <label class="col-sm-3 col-form-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" name="email" id="updateEmail" placeholder="Enter Email" required> 
+                                            <div id="updateemailError" class="text-danger"></div> <!-- Error message for email -->
+
+                                        </div>
+                                    </div>  
+                                    <!-- Password Field -->
+                                    <div class="row mb-3">
+                                        <label class="col-sm-3 col-form-label">Password</label>
+                                        <div class="col-sm-9">
+                                            <input type="password" class="form-control" name="password" id="updatePassword" placeholder="Enter Password" required> 
+                                            <div id="updatepasswordError" class="text-danger"></div> <!-- Error message for password -->
+
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" id="updateBtn">Save changes</button>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </div>
+                </form>
 
     <!-- Table to display records -->
     <table class="table" id="recordTable">
@@ -156,15 +174,12 @@ $(document).ready(function() {
             type: 'POST',
             data: formData,
             success: function(response) {
-                // Check if the response is 'success'
                 if (response.trim() === 'success') {
                     $('#addForm')[0].reset();  // Reset form fields
                     loadRecords();  // Reload the records table dynamically
-
-                    // Close the modal after successful insert
                     $('#addIconModal').modal('hide');  // Close the modal
                 } else {
-                    alert('Error adding record');  // Show error message if something goes wrong
+                    alert('Error adding record');
                 }
             },
             error: function() {
@@ -173,6 +188,63 @@ $(document).ready(function() {
         });
     });
 
+    // Fetch record data for editing
+    $(document).on('click', '.update-btn', function() {
+        var id = $(this).data('id');  // Get the record ID
+        $.ajax({
+            url: 'fetch.php', // PHP script to fetch the record data
+            type: 'GET',
+            data: { id: id }, // Send the ID to the PHP script
+            dataType: 'json', // Expecting JSON response
+            success: function(response) {
+                if (response) {
+                    // Populate the update modal with existing data
+                    $('#updateId').val(response.id); 
+                    $('#updateName').val(response.name); 
+                    $('#updateMobileno').val(response.mobileno); 
+                    $('#updateEmail').val(response.email); 
+                    $('#updatePassword').val(response.password); 
+
+                    // Show the modal after filling data
+                    $('#updateIconModal').modal('show');
+                }  
+            },
+            error: function() {
+                alert('An error occurred while fetching the data.');
+            }
+        });
+    });
+
+    // Submit the update form via AJAX
+    $('#updateForm').submit(function(e) {
+    e.preventDefault();   
+    var formData = {
+        update: true,   
+        id: $('#updateId').val(),
+        name: $('#updateName').val(),
+        mobileno: $('#updateMobileno').val(),
+        email: $('#updateEmail').val(),
+        password: $('#updatePassword').val()
+    };
+
+    $.ajax({
+        url: 'index.php',  
+        type: 'POST',
+        data: formData,  // Send the data to the PHP file
+        success: function(response) {
+            if (response.trim() === 'Update successful') {
+                $('#updateForm')[0].reset();  // Reset the form
+                $('#updateIconModal').modal('hide');  // Close the modal
+                loadRecords();  // Reload the table dynamically
+            } else {
+                alert('Error updating record');
+            }
+        },
+        error: function() {
+            alert('An error occurred while updating the record.');
+        }
+    });
+});
     // Handle record deletion dynamically
     $(document).on('click', '.delete-btn', function() {
         var recordId = $(this).data('id');  // Get the ID of the record to delete
@@ -182,13 +254,12 @@ $(document).ready(function() {
             $.ajax({
                 url: 'index.php',  // Same PHP file for deletion
                 type: 'GET',
-                data: { delete: recordId },  // Pass the record ID to delete
+                data: { delete: recordId },   
                 success: function(response) {
-                    loadRecords();  // Reload the records table after deletion
+                    loadRecords();   
                 }
             });
         }
     });
-});
-
+});    
 </script>
