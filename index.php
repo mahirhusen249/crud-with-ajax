@@ -1,42 +1,58 @@
 <?php
 include 'conn.php';    
-if(isset($_POST['submit'])){
+ 
+if (isset($_POST['submit'])) {
+     $name = mysqli_real_escape_string($con, $_POST['name']);
+    $mobileno = mysqli_real_escape_string($con, $_POST['mobileno']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $password = $_POST['password'];  
 
-    $name = $_POST['name'];
-    $mobileno = $_POST['mobileno'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+ 
+     $sql = "INSERT INTO `stbl` (name, mobileno, email, password) VALUES ('$name', '$mobileno', '$email', '$password ')";
 
-     $sql = "INSERT INTO `stbl` (name, mobileno, email, password) VALUES ('$name', '$mobileno', '$email', '$password')";
     if (mysqli_query($con, $sql)) {
-        echo 'success';   
+        echo 'success';  
     } else {
-        echo 'error';   
+         echo 'error: ' . mysqli_error($con);
     }
-    exit;  
-}   
+    
+    exit;   
+}
+  
 
 
  
+ // Include your database connection file (make sure it exists and connects correctly)
+ 
+// Check if the 'update' POST variable is set
 if (isset($_POST['update'])) {
-    // Get values from AJAX request
+    // Get values from the AJAX request
     $id = $_POST['id'];
     $name = $_POST['name'];
     $mobileno = $_POST['mobileno'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Update SQL Query
+    // Escape values to prevent SQL injection (using mysqli_real_escape_string)
+    $id = mysqli_real_escape_string($con, $id);
+    $name = mysqli_real_escape_string($con, $name);
+    $mobileno = mysqli_real_escape_string($con, $mobileno);
+    $email = mysqli_real_escape_string($con, $email);
+    $password = mysqli_real_escape_string($con, $password);
+
+    // SQL Update query
     $sql = "UPDATE stbl SET name='$name', mobileno='$mobileno', email='$email', password='$password' WHERE id='$id'";
 
+    // Execute the SQL query
     if (mysqli_query($con, $sql)) {
+        // Return success message
         echo 'Update successful';
     } else {
+        // Return error message
         echo 'Error updating record';
     }
-    exit;
+    exit;  // Always call exit after sending the response to prevent further execution
 }
-
  
 
   
